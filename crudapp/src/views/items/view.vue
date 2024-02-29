@@ -3,6 +3,7 @@ import { onMounted } from 'vue';
 
 import { RouterLink } from 'vue-router';
 <template>
+    <div class="container">
    <div class = "card">
     <div class="card-header">
         <h4>
@@ -23,16 +24,26 @@ import { RouterLink } from 'vue-router';
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-
+                    <tr v-for="(items) in this.items" :key="index">
+                        <td>{{ items.id }}</td>
+                        <td>{{ items.name }}</td>
+                        <td>{{ items.price }}</td>
+                        <td>
+                            <RouterLink to="/" class="btn btn-succes">
+                                edit
+                            </RouterLink>
+                            <button type="button"  class="btn btn-danger">Delete</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
    </div>
+</div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     name: 'items',
     data(){
@@ -41,7 +52,18 @@ export default {
         }
     },
     mounted(){
-        console.log('i am here')
-    }
+
+        this.getItems();
+        //console.log('i am here')
+    },
+    methods: {
+        getItems(){
+
+            axios.get('http://localhost:8000/api/items').then(res =>{
+                this.items = res.data.items
+                console.log(this.items)
+            });
+        }
+    },
 }
 </script>
