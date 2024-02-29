@@ -8,7 +8,7 @@
             <div class="card-body">
                 <div class="mb-3">
                     <label for="">name</label>
-                    <input type="text" class="form-control" />
+                    <input type="text" v-model class="form-control" />
                 </div>
                 <div class="mb-3">
                     <label for="">price</label>
@@ -21,3 +21,21 @@
         </div>
     </div>
 </template>
+
+<script>
+
+export default {
+    name: 'itemCreate',
+    data(){
+        return{
+            model: {
+                items: {
+                    name: '',
+                    price:''
+                }
+            }
+        }
+    },
+}
+
+</script>
