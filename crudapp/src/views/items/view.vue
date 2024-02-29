@@ -29,7 +29,7 @@ import { RouterLink } from 'vue-router';
                         <td>{{ items.name }}</td>
                         <td>{{ items.price }}</td>
                         <td>
-                            <RouterLink to="/" class="btn btn-succes">
+                            <RouterLink :to="{ path: '/items'+items.id+'/edit'}" class="btn btn-succes mx-2">
                                 edit
                             </RouterLink>
                             <button type="button"  class="btn btn-danger">Delete</button>
