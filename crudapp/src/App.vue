@@ -5,10 +5,7 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <RouterLink class="navbar-brand" to="/">Navbar</RouterLink>
@@ -25,7 +22,7 @@ import HelloWorld from './components/HelloWorld.vue'
           <RouterLink class="nav-link" to="/">home</RouterLink>
         </li>
         <li class="nav-item">
-          <RouterLink class="nav-link" to="/">item</RouterLink>
+          <RouterLink class="nav-link" to="/items">item</RouterLink>
         </li>
       </ul>
     </div>
@@ -37,7 +34,7 @@ import HelloWorld from './components/HelloWorld.vue'
   </header>
 
   <RouterView />
-  
+
 </template>
 
 <style scoped>
