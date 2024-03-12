@@ -44,9 +44,9 @@ export default {
     methods: {
 
         getItemsData(itemid){
-            axios.get('http://localhost:8000/api/items/${}/edit').then(res =>
+            axios.get(`http://localhost:8000/api/items/${itemid}/edit`).then(res =>
             {
-
+                console.log(res)
             })
         },
 

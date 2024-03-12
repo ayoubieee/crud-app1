@@ -32,7 +32,7 @@ import { RouterLink } from 'vue-router';
                             <RouterLink :to="{ path: '/items'+items.id+'/edit'}" class="btn btn-succes mx-2">
                                 edit
                             </RouterLink>
-                            <button type="button"  class="btn btn-danger">Delete</button>
+                            <button type="button" @click="deleteItems(items.id)" class="btn btn-danger">Delete</button>
                         </td>
                     </tr>
                 </tbody>
@@ -63,7 +63,19 @@ export default {
                 this.items = res.data.items
                 console.log(this.items)
             });
+        },
+
+        deleteItems(itemid){
+
+            if(confirm('Are you sure, you want to delete this item?'))
+            // console.log(itemid)
+            axios.delete(`http://localhost:8000/api/items/${itemid}/delete`)
+            .then(res => {
+                alert(res.data.message);
+            });
+
         }
-    },
+
+    }
 }
 </script>
